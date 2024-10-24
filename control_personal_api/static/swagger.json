@@ -1,0 +1,54 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Control de Personal API",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/empleados": {
+        "post": {
+          "summary": "Agregar un nuevo empleado",
+          "parameters": [
+            {
+              "name": "empleado",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Empleado"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Empleado creado"
+            },
+            "400": {
+              "description": "Error en los datos"
+            }
+          }
+        },
+        "get": {
+          "summary": "Listar empleados",
+          "responses": {
+            "200": {
+              "description": "Lista de empleados"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Empleado": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "puesto": {
+            "type": "string"
+          }
+        },
+        "required": ["nombre", "puesto"]
+      }
+    }
+  }
